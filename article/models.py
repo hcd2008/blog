@@ -15,8 +15,8 @@ class Article(models.Model):
     title = models.CharField(max_length=100,verbose_name='标题')
     cate = models.ForeignKey(Category,verbose_name='分类')
     content = models.TextField(verbose_name='文章内容')
-    thumb = models.ImageField(max_length=200,verbose_name='文章图片')
-    add_date = models.DateTimeField(verbose_name='添加时间')
+    thumb = models.ImageField(max_length=200,verbose_name='文章图片',upload_to='')
+    add_date = models.DateTimeField(verbose_name='添加时间',auto_now_add=True)
 
     def __unicode__(self):
         return self.title

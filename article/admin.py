@@ -15,6 +15,8 @@ class ArticleAdmin(admin.ModelAdmin):
     search_fields = ['title']
     list_filter = ['add_date']
     list_per_page = 5
+    actions_on_bottom = True
+    actions_on_top = False
 
     class Media:
         js = (
