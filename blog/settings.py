@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'blog',
         'HOST':'127.0.0.1',
         'USER':'root',
-        'PASSWORD':'root'
+        'PASSWORD':'hcd1314'
     }
 }
 
@@ -123,5 +123,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = '/uploads/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'

@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 from .models import Article,Category
+from django.utils.safestring import mark_safe
+from blog import settings
 # Register your models here.
 
 class CategoryAdmin(admin.ModelAdmin):
@@ -11,7 +13,15 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ['catname']
 
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ['title','cate','thumb','add_date']
+    def thumb_data(self,obj):
+        if obj.thumb:
+            return mark_safe("<img src='%s' width='140px'/>" % obj.thumb.url)
+        else:
+            return 'no image'
+
+    thumb_data.short_description = '文章图片'
+    list_display = ['title', 'cate', 'thumb_data', 'add_date']
+    readonly_fields = ('thumb_data',)
     search_fields = ['title']
     list_filter = ['add_date']
     list_per_page = 5

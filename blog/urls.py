@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
-
+from django.contrib.staticfiles.urls import static
+from blog import settings
 
 urlpatterns = [
     url(r'^article',include('article.urls')),
     url(r'^admin/', admin.site.urls),
 
 ]
+urlpatterns += static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)
