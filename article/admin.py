@@ -2,13 +2,13 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from .models import Article,Category
+from .models import *
 from django.utils.safestring import mark_safe
 from blog import settings
 # Register your models here.
 
 class CategoryAdmin(admin.ModelAdmin):
-    fields = ['catname','paixu']
+    fields = ['parent','catname','paixu']
     list_display = ['catname','paixu']
     search_fields = ['catname']
 
@@ -34,5 +34,8 @@ class ArticleAdmin(admin.ModelAdmin):
             'article/js/kindeditor/config.js',
             'article/js/kindeditor/lang/zh-CN.js',
         )
+
+
+
 admin.site.register(Category,CategoryAdmin)
 admin.site.register(Article,ArticleAdmin)
