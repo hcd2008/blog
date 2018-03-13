@@ -28,6 +28,7 @@ class WorkAdmin(admin.ModelAdmin):
     list_per_page = 5
     actions_on_bottom = True
     actions_on_top = False
+    filter_horizontal = ('tag',)
 
     class Media:
         js = (

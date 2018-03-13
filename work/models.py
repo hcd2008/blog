@@ -7,6 +7,11 @@ from django.db import models
 class Tag(models.Model):
     name = models.CharField(max_length=50,verbose_name='标签名')
     paixu = models.IntegerField(verbose_name='排序',default=1)
+
+    class Meta:
+        verbose_name_plural = '标签'
+        verbose_name = '标签'
+
     def __unicode__(self):
         return self.name
 
@@ -21,5 +26,8 @@ class Work(models.Model):
     paixu = models.IntegerField(verbose_name='排序',default=100)
     hits = models.IntegerField(verbose_name='浏览量',default=0)
 
+    class Meta:
+        verbose_name = '作品'
+        verbose_name_plural = '作品'
     def __unicode__(self):
         return self.title

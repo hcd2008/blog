@@ -36,6 +36,10 @@ class ArticleAdmin(admin.ModelAdmin):
         )
 
 
+admin.site.site_header = '知行合一'
+admin.site.site_title = '知行合一的博客'
+admin.site.index_title = 'Blog'
+admin.site.site_url = '/article'
 
-admin.site.register(Category,CategoryAdmin)
 admin.site.register(Article,ArticleAdmin)
+admin.site.register(Category,CategoryAdmin)
