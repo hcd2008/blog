@@ -1,2 +1,131 @@
 {% extends 'article/base.html' %}
 {% block title %}欢迎光临知行合一的博客{% endblock %}
+{% block mycontent %}
+    <!--article image-->
+                            <img src="media/{{ farticle.thumb }}" alt="" class="img-responsive">
+
+                            <!--article title-->
+                            <h1>{{ farticle.title }}</h1>
+                            <h1 class="spacer">___</h1>
+
+                            <!--article date-->
+                            <p class="article-date">{{ farticle.add_date }}</p>
+
+                            <!--article tags-->
+                            <p class="article-tags">
+                                <a href="#">{{ farticle.cate.catname }}</a>
+                            </p>
+
+                            <!--article content-->
+                            <p class="article-description"><strong>{{ farticle.desc }}</strong>
+                            {{ farticle.content|safe }}
+                            </p>
+
+                            <!--navigation-->
+                            <ul class="pager">
+                                <li class="previous"><a href="#">&lt; 上一篇</a></li>
+                                <li class="next disabled"><a href="#">下一篇 &gt;</a></li>
+                            </ul>
+                            <hr>
+
+                            <!--comments-->
+                            <h1>留言</h1>
+                            <h1 class="spacer">___</h1>
+                            <div class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object img-circle" src="static/article/img/blog/avatar.jpg" alt="miniature-comment" width="48">
+                                </a>
+                                <div class="media-body">
+                                    <h3 class="media-heading">John doe</h3>
+                                    <p class="comment-date">09 sep 2013</p>
+                                    <p class="comment-content">Comitem generum supergressa idem reginae flagrans formula fines fines pretioso occideretur cuiusdam eius. Fuerit toto in consulatu sine provincia, cui fuerit, antequam designatus est, decreta provincia. Sortietur an non?
+                                </div>
+                            </div>
+                            <hr class="sm">
+                            <div class="media">
+                                <a class="pull-left" href="#">
+                                    <img class="media-object img-circle" src="static/article/img/blog/avatar-2.jpg" alt="miniature-comment" width="48">
+                                </a>
+                                <div class="media-body">
+                                    <h3 class="media-heading">Sandra Lima</h3>
+                                    <p class="comment-date">17 sep 2013</p>
+                                    <p class="comment-content">Montius nos tumore inusitato quodam et novo ut rebellis et maiestati recalcitrantes Augustae per haec quae strepit incusat iratus nimirum quod contumacem praefectum, quid rerum ordo postulat ignorare dissimulantem formidine tenus iusserim custodiri.
+                                </div>
+                            </div>
+                            <hr class="sm">
+                            <h3>我要评论</h3>
+                            <div class="panel panel-default contact btn-footer">
+                                <div class="panel-body">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <label for="blogEmail">邮箱 / 用户名</label>
+                                            <input type="email" class="form-control" id="blogEmail">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="blogMessage">评论</label>
+                                            <textarea class="form-control" rows="5" id="blogMessage"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="panel-footer">
+                                    <a class="btn btn-grey btn-lg btn-block">评论</a>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <!--share-->
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <h3 class="share">分享</h3>
+                                </div>
+                                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 text-right">
+                                    <a href="#"><img class="social" src="static/article/img/icon/icon-mail.png" alt="Mail"></a>
+                                    <a href="#"><img class="social" src="static/article/img/icon/icon-facebook.png" alt="Facebook"></a>
+                                    <a href="#"><img class="social" src="static/article/img/icon/icon-twitter.png" alt="Twitter"></a>
+                                    <a href="#"><img class="social" src="static/article/img/icon/icon-google.png" alt="Google plus"></a>
+                                </div>
+                            </div>
+{% endblock %}
+{% block mylist %}
+                    <div class="item-choice">
+                        <a href="#" class="filter" data-filter="all">All</a>
+                        {% for cate in cates %}
+                            <a href="#" class="filter">{{ cate.catname }}</a>
+                        {% endfor %}
+                        <hr>
+                    </div>
+                    <section class="blog">
+                        {% for article in articles %}
+                        <!--article-->
+                        <div class="media">
+                            <a class="pull-left" href="#">
+
+                                <!--article image-->
+                                <img class="media-object" width="100px" src="media/{{ article.thumb }}" alt="miniature-article">
+
+                            </a>
+                            <div class="media-body">
+
+                                <!--article title-->
+                                <h4 class="media-heading">{{ article.title }}
+                                <span class="label label-default">New</span></h4>
+
+                                <!--article category-->
+                                <p class="article-category">Graphic design</p>
+
+                                <!--article date-->
+                                <p class="article-date">{{ article.add_date }}</p>
+
+                                <!--article short description-->
+                                <p class="article-description">Comitem generum supergressa idem reginae flagrans formula fines fines pretioso occideretur cuiusdam eius...view more</p>
+
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </section>
+                    <a class="btn btn-default btn-lg btn-block load-more">Load more</a>
+                    <a class="btn btn-block scroll-top visible-xs">
+                        <img src="img/icon/icon-chevron.png" alt="Scroll top">
+                    </a>
+
+{% endblock %}

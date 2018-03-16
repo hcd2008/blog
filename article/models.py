@@ -8,7 +8,6 @@ from django.db import models
 class Category(models.Model):
     catname = models.CharField(max_length=50,verbose_name='分类名')
     paixu = models.IntegerField(verbose_name='排序')
-    parent = models.ForeignKey('self',verbose_name='父分类',default=0)
 
     class Meta:
         verbose_name = '分类'
@@ -19,6 +18,7 @@ class Category(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=100,verbose_name='标题')
+    desc = models.CharField(max_length=255,verbose_name='简介')
     cate = models.ForeignKey(Category,verbose_name='分类')
     content = models.TextField(verbose_name='文章内容')
     thumb = models.ImageField(max_length=200,verbose_name='文章图片',upload_to='article/')
