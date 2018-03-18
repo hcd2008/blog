@@ -22,23 +22,23 @@
 
             <div class="row top">
                 <div class="col-lg-8 col-md-8 col-sm-7 col-left">
-                    <div class="name"><a href="index.html">Eldun Malosanu</a></div>
+                    <div class="name"><a href="index.html"><img height="37px" src="{% static 'article/img/heyi.png' %}" alt=""></a></div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-5 col-right">
                     <nav>
                         <ul class="list-inline" id="menu">
                             <li >
-                                <a href="/work">work</a>
+                                <a href="{% url 'work:work_index' %}">work</a>
                             </li>
                             <li class="active">
-                                <a href="/article">blog</a>
+                                <a href="{% url 'article:article_index' %}">blog</a>
                             </li>
                             <li>
                                 <a href="/contact">contact</a>
                             </li>
                             <li class="last">
-                                <a href="#"><img class="social" src="static/article/img/icon/icon-facebook.png" alt="facebook"></a>
-                                <a href="#"><img class="social" src="static/article/img/icon/icon-twitter.png" alt="twitter"></a>
+                                <a href="#"><img class="social" src="/static/article/img/icon/icon-facebook.png" alt="facebook"></a>
+                                <a href="#"><img class="social" src="/static/article/img/icon/icon-twitter.png" alt="twitter"></a>
                             </li>
                         </ul>
                     </nav>
@@ -53,7 +53,7 @@
                                 <div class="col-lg-12">
 
                                     <!--activity image-->
-                                    <img class="img-responsive" src="static/article/img/image-home-2.jpg" alt="Project header">
+                                    <img class="img-responsive" src="{% static 'static/article/img/image-home-2.jpg' %}" alt="Project header">
 
                                     <!--activity title -->
                                     <h1>hello i'm a freelance web designer</h1>
@@ -92,7 +92,7 @@
                                     <a href="project-example.html">
 
                                         <!--work image-->
-                                        <img class="img-responsive item-img" src="static/article/img/work/projet-example-1.png" alt="Work 1">
+                                        <img class="img-responsive item-img" src="{% static 'static/article/img/work/projet-example-1.png' %}" alt="Work 1">
 
                                     </a>
                                 </div>

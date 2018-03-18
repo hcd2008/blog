@@ -2,7 +2,7 @@
 {% block title %}欢迎光临知行合一的博客{% endblock %}
 {% block mycontent %}
     <!--article image-->
-                            <img src="media/{{ farticle.thumb }}" alt="" class="img-responsive">
+                            <img src="/media/{{ farticle.thumb }}" alt="" class="img-responsive">
 
                             <!--article title-->
                             <h1>{{ farticle.title }}</h1>
@@ -17,8 +17,9 @@
                             </p>
 
                             <!--article content-->
-                            <p class="article-description"><strong>{{ farticle.desc }}</strong>
-                            {{ farticle.content|safe }}
+                            <p class="article-description"><strong>{{ farticle.desc }}</strong></p>
+                            <p class="article-description">
+                                {{ farticle.content|safe }}
                             </p>
 
                             <!--navigation-->
@@ -33,7 +34,7 @@
                             <h1 class="spacer">___</h1>
                             <div class="media">
                                 <a class="pull-left" href="#">
-                                    <img class="media-object img-circle" src="static/article/img/blog/avatar.jpg" alt="miniature-comment" width="48">
+                                    <img class="media-object img-circle" src="/static/article/img/blog/avatar.jpg" alt="miniature-comment" width="48">
                                 </a>
                                 <div class="media-body">
                                     <h3 class="media-heading">John doe</h3>
@@ -44,7 +45,7 @@
                             <hr class="sm">
                             <div class="media">
                                 <a class="pull-left" href="#">
-                                    <img class="media-object img-circle" src="static/article/img/blog/avatar-2.jpg" alt="miniature-comment" width="48">
+                                    <img class="media-object img-circle" src="/static/article/img/blog/avatar-2.jpg" alt="miniature-comment" width="48">
                                 </a>
                                 <div class="media-body">
                                     <h3 class="media-heading">Sandra Lima</h3>
@@ -79,10 +80,10 @@
                                     <h3 class="share">分享</h3>
                                 </div>
                                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 text-right">
-                                    <a href="#"><img class="social" src="static/article/img/icon/icon-mail.png" alt="Mail"></a>
-                                    <a href="#"><img class="social" src="static/article/img/icon/icon-facebook.png" alt="Facebook"></a>
-                                    <a href="#"><img class="social" src="static/article/img/icon/icon-twitter.png" alt="Twitter"></a>
-                                    <a href="#"><img class="social" src="static/article/img/icon/icon-google.png" alt="Google plus"></a>
+                                    <a href="#"><img class="social" src="/static/article/img/icon/icon-mail.png" alt="Mail"></a>
+                                    <a href="#"><img class="social" src="/static/article/img/icon/icon-facebook.png" alt="Facebook"></a>
+                                    <a href="#"><img class="social" src="/static/article/img/icon/icon-twitter.png" alt="Twitter"></a>
+                                    <a href="#"><img class="social" src="/static/article/img/icon/icon-google.png" alt="Google plus"></a>
                                 </div>
                             </div>
 {% endblock %}
@@ -90,7 +91,7 @@
                     <div class="item-choice">
                         <a href="#" class="filter" data-filter="all">All</a>
                         {% for cate in cates %}
-                            <a href="#" class="filter">{{ cate.catname }}</a>
+                            <a href="/article/cate/{{ cate.id }}" class="filter">{{ cate.catname }}</a>
                         {% endfor %}
                         <hr>
                     </div>
@@ -98,26 +99,26 @@
                         {% for article in articles %}
                         <!--article-->
                         <div class="media">
-                            <a class="pull-left" href="#">
+                            <a class="pull-left" href="/article/{{ article.id }}">
 
                                 <!--article image-->
-                                <img class="media-object" width="100px" src="media/{{ article.thumb }}" alt="miniature-article">
+                                <img class="media-object" width="100px" src="/media/{{ article.thumb }}" alt="miniature-article">
 
                             </a>
                             <div class="media-body">
 
                                 <!--article title-->
-                                <h4 class="media-heading">{{ article.title }}
-                                <span class="label label-default">New</span></h4>
+                                <h4 class="media-heading"><a href="/article/{{ article.id }}">{{ article.title }}
+                                    <span class="label label-default">New</span></a></h4>
 
                                 <!--article category-->
-                                <p class="article-category">Graphic design</p>
+                                <p class="article-category">{{ article.cate.catname }}</p>
 
                                 <!--article date-->
                                 <p class="article-date">{{ article.add_date }}</p>
 
                                 <!--article short description-->
-                                <p class="article-description">Comitem generum supergressa idem reginae flagrans formula fines fines pretioso occideretur cuiusdam eius...view more</p>
+                                <p class="article-description">{{ article.desc }}</p>
 
                             </div>
                         </div>
