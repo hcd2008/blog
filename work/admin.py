@@ -12,6 +12,10 @@ class TagAdmin(admin.ModelAdmin):
     fields = ['name','paixu']
     list_display = ['name','paixu']
 
+class CategoryAdmin(admin.ModelAdmin):
+    fields = ['catname','catname_en','paixu']
+    list_display = ['catname','catname_en','paixu']
+
 
 class WorkAdmin(admin.ModelAdmin):
     def thumb_data(self,obj):
@@ -38,4 +42,5 @@ class WorkAdmin(admin.ModelAdmin):
         )
 
 admin.site.register(Tag,TagAdmin)
+admin.site.register(Category,CategoryAdmin)
 admin.site.register(Work,WorkAdmin)

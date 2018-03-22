@@ -91,14 +91,14 @@
                     <div class="item-choice">
                         <a href="#" class="filter" data-filter="all">All</a>
                         {% for cate in cates %}
-                            <a href="/article/cate/{{ cate.id }}" class="filter">{{ cate.catname }}</a>
+                            <a href="/article/cate/{{ cate.id }}" class="filter" data-filter="{{ cate.catname_en }}">{{ cate.catname }}</a>
                         {% endfor %}
                         <hr>
                     </div>
-                    <section class="blog">
+                    <section class="blog" id="Grid">
                         {% for article in articles %}
                         <!--article-->
-                        <div class="media">
+                        <div class="media mx {{ article.cate.catname_en }}">
                             <a class="pull-left" href="/article/{{ article.id }}">
 
                                 <!--article image-->

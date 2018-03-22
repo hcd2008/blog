@@ -8,8 +8,8 @@ from blog import settings
 # Register your models here.
 
 class CategoryAdmin(admin.ModelAdmin):
-    fields = ['parent','catname','paixu']
-    list_display = ['catname','paixu']
+    fields = ['catname','catname_en','paixu']
+    list_display = ['catname','catname_en','paixu']
     search_fields = ['catname']
 
 class ArticleAdmin(admin.ModelAdmin):

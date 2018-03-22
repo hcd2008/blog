@@ -7,6 +7,7 @@ from django.db import models
 # Create your models here.
 class Category(models.Model):
     catname = models.CharField(max_length=50,verbose_name='分类名')
+    catname_en = models.CharField(max_length=50,verbose_name='英文名')
     paixu = models.IntegerField(verbose_name='排序')
 
     class Meta:

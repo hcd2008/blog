@@ -20,7 +20,7 @@ from blog import settings
 
 urlpatterns = [
     url(r'^article/',include('article.urls')),
-    url(r'^work',include('work.urls')),
+    url(r'^work/',include('work.urls')),
     url(r'^admin/', admin.site.urls),
 
 
